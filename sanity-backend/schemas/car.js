@@ -1,6 +1,6 @@
 export default{
     name: 'car',
-    title: 'car',
+    title: 'Car',
     type: 'document',
     fields:[
         {
@@ -15,12 +15,27 @@ export default{
         },
         {
             name: 'carId',
-            title: 'CarId',
+            title: 'Car Id',
             type: 'string',
         },
         {
             name: 'cost',
             title: 'Car Rental Cost',
+            type: 'number',
+        },
+        {
+            name: 'brand',
+            title: 'Car Brand',
+            type: 'string',
+        },
+        {
+            name: 'transmision',
+            title: 'Car Transmision',
+            type: 'string',
+        },
+        {
+            name: 'seat',
+            title: 'Car seat',
             type: 'number',
         }
     ]
