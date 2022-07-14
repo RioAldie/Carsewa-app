@@ -1,5 +1,7 @@
+import { Box } from '@mui/material';
 import type { AppProps } from 'next/app';
 import { useState, useEffect } from 'react';
+import Navbar from '../components/Navbar';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [isSSR, setIsSSR] = useState(true);
@@ -9,15 +11,15 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   });
   if(isSSR) return null;
   return(
-    <div>
-      Navbar
-      <div>
+    <Box>
+      <Navbar/>
+      <Box>
         Sidebar
-      </div>
-      <div>
+      </Box>
+      <Box>
         <Component {...pageProps} />
-      </div>
-    </div>
+      </Box>
+    </Box>
   ) 
 }
 
