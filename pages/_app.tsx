@@ -1,8 +1,19 @@
-import { Box } from '@mui/material';
+import { Box, CssBaseline } from '@mui/material';
 import type { AppProps } from 'next/app';
 import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+let theme = createTheme({
+  palette: {
+    primary: {
+      main: '#EB1D36',
+    },
+    secondary: {
+      main: '#edf2ff',
+    },
+  },
+});
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [isSSR, setIsSSR] = useState(true);
 
@@ -11,6 +22,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   });
   if(isSSR) return null;
   return(
+    <>
+    <CssBaseline/>
+    <ThemeProvider theme={theme}>
     <Box>
       <Navbar/>
       <Box>
@@ -20,6 +34,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <Component {...pageProps} />
       </Box>
     </Box>
+    </ThemeProvider>
+    </>
   ) 
 }
 

@@ -14,7 +14,7 @@ export default function Navbar () {
   return(
     <>
       <Box>
-        <AppBar sx={{bgcolor:'#fff'}}>
+        <AppBar sx={{bgcolor:'#fff'}} >
           <Toolbar sx={{display: 'flex', justifyContent:'space-between'}}>
             <Box>
               <Image src={'/icons/carsewa-logo.svg'} height={30} width={103}/>
@@ -23,7 +23,7 @@ export default function Navbar () {
               <List sx={{display:'flex', flexDirection:'row'}}> 
                   <ListItemButton >
                       <Navtext>
-                        Become a renter
+                        Become a Renter
                       </Navtext>
                   </ListItemButton>
                   <ListItemButton>
@@ -38,7 +38,7 @@ export default function Navbar () {
                   </ListItemButton>
                   <ListItemButton>
                       <Navtext>
-                        Why chosen us
+                        Why Chosen us
                       </Navtext>
                   </ListItemButton>
                   <ListItemButton>
