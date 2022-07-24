@@ -2,6 +2,7 @@ import { Box, CssBaseline } from '@mui/material';
 import type { AppProps } from 'next/app';
 import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
+import '../styles/globals.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 // When using TypeScript 4.x and above
 import type {} from '@mui/x-data-grid/themeAugmentation';
@@ -31,7 +32,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <Box>
           <Navbar/>
             <Component {...pageProps} />
-        
         </Box>
       </ThemeProvider>
     </>

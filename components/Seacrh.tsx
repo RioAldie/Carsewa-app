@@ -15,7 +15,8 @@ export default function Search() {
         justifyContent:'space-evenly',
         alignItems:'center',
         boxShadow: '0px 4px 4px 0px #00000040',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        marginTop:'40px'
     })
     return(
         
