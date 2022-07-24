@@ -3,6 +3,9 @@ import type { AppProps } from 'next/app';
 import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+// When using TypeScript 4.x and above
+import type {} from '@mui/x-data-grid/themeAugmentation';
+
 
 let theme = createTheme({
   palette: {
@@ -27,12 +30,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <ThemeProvider theme={theme}>
     <Box>
       <Navbar/>
-      <Box>
-        Sidebar
-      </Box>
-      <Box>
         <Component {...pageProps} />
-      </Box>
+    
     </Box>
     </ThemeProvider>
     </>
