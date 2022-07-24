@@ -27,13 +27,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return(
     <>
     <CssBaseline/>
-    <ThemeProvider theme={theme}>
-    <Box>
-      <Navbar/>
-        <Component {...pageProps} />
-    
-    </Box>
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Box>
+          <Navbar/>
+            <Component {...pageProps} />
+        
+        </Box>
+      </ThemeProvider>
     </>
   ) 
 }
