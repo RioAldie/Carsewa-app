@@ -1,7 +1,18 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Step, styled, Typography } from "@mui/material";
 import Image from "next/image";
+import StepWork from "./moleculs/step";
 
 export default function Steps() {
+    const MainText = styled('p')({
+        fontWeight:'600',
+        fontSize:'32px',
+        lineHeight:'38px',
+        color: '#000',
+        textAlign:'center'
+    })
+    const RedText = styled('span')({
+        color:'#EB1D36'
+    }) 
     return(
         <>
             <Box sx={{
@@ -11,25 +22,28 @@ export default function Steps() {
                 marginTop:'100px',
                 padding:'20px'
             }}>
-                <Typography variant="h5">How it Work</Typography>
-                <p>Rent With Following 3 Working Steps</p>
+                <Typography variant="h5"sx={{
+                    width:'131px',
+                    fontWeight:'600',
+                    fontSize:'24px',
+                    lineHeight:'28px',
+                    color:'#9E9E9E'
+                }}>How it Work</Typography>
+                <MainText>Rent With Following <RedText>3</RedText>  Working Steps</MainText>
                 <Box sx={{
                      display:'flex',
-                     flexDirection:'row',
+                     flexDirection:{
+                        xs: 'column',
+                        md:'row'
+                     },
                      alignItems: 'center',
-                     border: 'solid 1px #000',
                      width:'100%',
+                     justifyContent:'space-evenly',
                      minHeight:'200px'
                 }}>
-                    <Box sx={{
-                        display:'flex',
-                        flexDirection:'column',
-
-                    }}>
-                        <Image src={'/icons/step-1.svg'} height={200} width={200}/>
-                        <Typography>Chose Location</Typography>
-                        <Typography variant="body2">Chose Your Location and Find Your Best Car</Typography>
-                    </Box>
+                    <StepWork image={'/icons/step-1.svg'} name={"Chose Location"} body={"Chose Your Location and Find Your Best Car"}/>
+                    <StepWork image={'/icons/step-2.svg'} name={"Pick-up Date."} body={"Select your Pickup date and Time Your Book Car"}/>
+                    <StepWork image={'/icons/step-3.svg'} name={"Book Your Car."} body={"Book Your Car and We Will Driver Directly For You"}/>
                 </Box>
             </Box>
         </>
