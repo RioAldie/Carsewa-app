@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Hero from '../components/Hero';
 import Navbar from '../components/Navbar';
 import Search from '../components/Seacrh';
+import Services from '../components/Services';
 import Steps from '../components/Steps';
 
 const Home: NextPage = () => {
@@ -25,6 +26,7 @@ const Home: NextPage = () => {
       
       <Search/>
       <Steps />
+      <Services/>
     </Box>
     </>
 
