@@ -25,7 +25,8 @@ export default function Services(){
                 alignItems:'center',
                 minHeight:'100vh',
                 width:'100%',
-                justifyContent:'space-evenly'
+                justifyContent:'space-evenly',
+                mt:'150px'
             }}>
                 <Box mt={10}>
                     <Image src={'/image/thum-service.png'} height={428} width={561}/>

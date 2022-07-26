@@ -2,6 +2,7 @@ import { Box, CssBaseline } from '@mui/material';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import Discover from '../components/Discover';
 import Hero from '../components/Hero';
 import Navbar from '../components/Navbar';
 import Search from '../components/Seacrh';
@@ -27,6 +28,7 @@ const Home: NextPage = () => {
       <Search/>
       <Steps />
       <Services/>
+      <Discover/>
     </Box>
     </>
 
