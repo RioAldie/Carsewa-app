@@ -20,15 +20,14 @@ export default function Services(){
             <Box sx={{
                 display:'flex',
                 flexDirection:{
-                   xs:'column-reverse', sm:'column',md:'row'
+                   xs:'column-reverse', sm:'column-reverse',md:'row'
                 },
                 alignItems:'center',
                 minHeight:'100vh',
                 width:'100%',
-                border:'solid 1px #000',
                 justifyContent:'space-evenly'
             }}>
-                <Box>
+                <Box mt={10}>
                     <Image src={'/image/thum-service.png'} height={428} width={561}/>
                 </Box>
                 <Box sx={{
@@ -47,7 +46,22 @@ export default function Services(){
                     <MainText>
                     We Offer The <RedText> Best</RedText> Experience With Our Rental Deals
                     </MainText>
-                    <ServiceItem/>
+                    <ServiceItem 
+                    primary={"Best Price Guaranted"} 
+                    secondary={"Find Lower Price? We’ll refund you 100% of the difference."} 
+                    icon={"piggy-icon.svg"}/>
+                    <ServiceItem 
+                    primary="Experienced Driver" 
+                    secondary={"Dont have a driver? Dont worry, We have many experienced driver for vou."} 
+                    icon={"driver-icon.svg"}/>
+                    <ServiceItem 
+                    primary="24 Hours Car Delivery" 
+                    secondary={"Back your car anytime and we’ll delivery it directly for you."} 
+                    icon={"clock-icon.svg"}/>
+                    <ServiceItem 
+                    primary="24/7 Technical Support" 
+                    secondary={"Have a question? Contact carsewa support anytime when you have problem."} 
+                    icon={"support-icon.svg"}/>
                 </Box>
             </Box>
         </>

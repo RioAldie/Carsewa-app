@@ -1,7 +1,13 @@
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 
-export default function ServiceItem(){
+interface ServiceItemProps{
+    primary: string,
+    secondary: string,
+    icon: string
+}
+export default function ServiceItem(props: ServiceItemProps){
+    const {primary, secondary, icon} = props;
     return(
         <>
              <Box sx={{
@@ -10,15 +16,16 @@ export default function ServiceItem(){
                         display: 'flex',
                         flexDirection:'row',
                         justifyContent:'space-evenly',alignItems:'center',
+                        mt:'25px'
                     }}>
-                        <Image src={'/icons/piggy-icon.svg'} width={69} height={66}/>
+                        <Image src={`/icons/${icon}`} width={69} height={66}/>
                         <Box>
                             <Typography sx={{
                                 fontSize:'16px',
                                 fontWeight:'600',
                                 lineHeight:'19px'
                             }}>
-                                Best Price Guaranted
+                                {primary}
                             </Typography>
                             <Typography sx={{
                                 fontSize:'14px',
@@ -27,7 +34,7 @@ export default function ServiceItem(){
                                 fontWeight:'400',
                                 maxWidth:'272px'
                             }}>
-                                Find Lower Price? We'll refund you 100% of the difference
+                                {secondary}
                             </Typography>
                         </Box>
                     </Box>
