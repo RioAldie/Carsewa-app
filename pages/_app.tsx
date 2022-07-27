@@ -6,7 +6,7 @@ import '../styles/globals.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 // When using TypeScript 4.x and above
 import type {} from '@mui/x-data-grid/themeAugmentation';
-
+import Footer from '../components/Footer';
 
 let theme = createTheme({
   palette: {
@@ -21,21 +21,22 @@ let theme = createTheme({
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [isSSR, setIsSSR] = useState(true);
 
-  useEffect(()=>{
+  useEffect(() => {
     setIsSSR(false);
   });
-  if(isSSR) return null;
-  return(
+  if (isSSR) return null;
+  return (
     <>
-    <CssBaseline/>
+      <CssBaseline />
       <ThemeProvider theme={theme}>
         <Box>
-          <Navbar/>
-            <Component {...pageProps} />
+          <Navbar />
+          <Component {...pageProps} />
+          <Footer />
         </Box>
       </ThemeProvider>
     </>
-  ) 
-}
+  );
+};
 
 export default MyApp;
