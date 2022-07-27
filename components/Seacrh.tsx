@@ -22,6 +22,7 @@ export function SearchMobile() {
         alignItems: 'center',
         justifyContent: 'center',
         mt: '140px',
+        zIndex: '100000',
       }}
     >
       <Box
@@ -77,6 +78,7 @@ export default function Search() {
     boxShadow: '0px 4px 4px 0px #00000040',
     flexWrap: 'wrap',
     marginTop: '40px',
+    backgroundColor: '#fff',
   });
   return (
     <BoxMain
