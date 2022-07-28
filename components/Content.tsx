@@ -17,7 +17,18 @@ export default function Content() {
         }}
       >
         <Categories />
-        <CarItem />
+        <CarItem
+          name={'Mitsubishi Xpander'}
+          category={'SUV'}
+          image={'mitsubishi_PNG161.png'}
+          width={'280'}
+          height={'158'}
+          seats={6}
+          speed={'225/Kmh'}
+          transmision={'Automatic'}
+          price={350000}
+          currency={'IDR'}
+        />
       </Box>
     </>
   );

@@ -5,7 +5,31 @@ import MinorCrashIcon from '@mui/icons-material/MinorCrash';
 import DiamondIcon from '@mui/icons-material/Diamond';
 import SpeedIcon from '@mui/icons-material/Speed';
 
-export default function CarItem() {
+interface CarItemProps {
+  name: string;
+  category: string;
+  image: string;
+  width: string;
+  height: string;
+  seats: number;
+  speed: string;
+  transmision: string;
+  price: number;
+  currency: string;
+}
+export default function CarItem(props: CarItemProps) {
+  const {
+    name,
+    category,
+    image,
+    width,
+    height,
+    seats,
+    speed,
+    transmision,
+    currency,
+    price,
+  } = props;
   const ItemDetail = styled(Typography)({
     display: 'flex',
     flexDirection: 'row',
@@ -51,9 +75,9 @@ export default function CarItem() {
       >
         <div>
           <Image
-            src={'/image/mitsubishi_PNG161.png'}
-            width={280}
-            height={158}
+            src={`/image/${image}`}
+            width={width}
+            height={height}
           />
         </div>
         <Box
@@ -72,9 +96,10 @@ export default function CarItem() {
               lineHeight: '28px',
               color: '#000',
               mb: '20px',
+              mt: '20px',
             }}
           >
-            Mitsubishi Xpander
+            {name}
           </Typography>
           <ItemDetail>
             <MinorCrashIcon
@@ -84,7 +109,7 @@ export default function CarItem() {
                 height: '25px',
               }}
             />
-            Automatic
+            {transmision}
           </ItemDetail>
           <ItemDetail
             sx={{
@@ -98,7 +123,7 @@ export default function CarItem() {
                 height: '25px',
               }}
             />
-            6 Seats
+            {seats} Seats
           </ItemDetail>
           <ItemDetail>
             <DiamondIcon
@@ -108,7 +133,7 @@ export default function CarItem() {
                 height: '25px',
               }}
             />
-            SUV
+            {category}
           </ItemDetail>
           <ItemDetail>
             <SpeedIcon
@@ -118,7 +143,7 @@ export default function CarItem() {
                 height: '25px',
               }}
             />
-            225/Kmh
+            {speed}
           </ItemDetail>
         </Box>
         <Box
@@ -129,7 +154,8 @@ export default function CarItem() {
           }}
         >
           <PriceText>
-            IDR 350.000<DayText>/Day</DayText>
+            {currency} {price}
+            <DayText>/Day</DayText>
           </PriceText>
           <Button
             sx={{
