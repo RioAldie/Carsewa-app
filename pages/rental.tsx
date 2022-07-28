@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Banner from '../components/Banner';
 import Content from '../components/Content';
-import Search, { SearchMobile } from '../components/Seacrh';
+import axios from 'axios';
 
 const Rental: NextPage = () => {
   return (
@@ -21,5 +21,12 @@ const Rental: NextPage = () => {
     </>
   );
 };
+export const getServerSideProps = async () => {
+  const response = await axios.get('http://localhost:3000/api/post');
+  console.log(response.data.name);
 
+  return {
+    props: {},
+  };
+};
 export default Rental;
