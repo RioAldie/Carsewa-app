@@ -2,6 +2,7 @@ import { Box, Button, CardMedia } from '@mui/material';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Banner from '../components/Banner';
+import Content from '../components/Content';
 import Search, { SearchMobile } from '../components/Seacrh';
 
 const Rental: NextPage = () => {
@@ -16,6 +17,7 @@ const Rental: NextPage = () => {
         ></link>
       </Head>
       <Banner />
+      <Content />
     </>
   );
 };
