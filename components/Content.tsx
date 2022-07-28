@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+import CarItem from './moleculs/car-item';
 import Categories from './organism/Category';
 
 export default function Content() {
@@ -16,6 +17,7 @@ export default function Content() {
         }}
       >
         <Categories />
+        <CarItem />
       </Box>
     </>
   );
