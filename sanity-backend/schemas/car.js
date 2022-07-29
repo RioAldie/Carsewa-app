@@ -13,7 +13,7 @@ export default {
     {
       name: 'image',
       title: 'image',
-      type: 'file',
+      type: 'image',
     },
     {
       name: 'carId',
@@ -53,6 +53,16 @@ export default {
     {
       name: 'currency',
       title: 'Currency',
+      type: 'string',
+    },
+    {
+      name: 'urlImage',
+      title: 'Url Image',
+      type: 'string',
+    },
+    {
+      name: 'speed',
+      title: 'Speed',
       type: 'string',
     },
   ],

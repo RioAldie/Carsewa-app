@@ -25,22 +25,7 @@ export default function Content(props: contentProps) {
         <Categories />
         {cars.length ? (
           cars.map((car) => {
-            return (
-              <CarItem
-                key={car.carId}
-                car={car}
-                name={'Mitsubishi Xpander'}
-                category={'SUV'}
-                image={'mitsubishi_PNG161.png'}
-                width={'280'}
-                height={'158'}
-                seats={6}
-                speed={'225/Kmh'}
-                transmision={'Automatic'}
-                price={350000}
-                currency={'IDR'}
-              />
-            );
+            return <CarItem key={car.carId} car={car} />;
           })
         ) : (
           <Typography>No Result</Typography>

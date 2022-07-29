@@ -7,32 +7,10 @@ import SpeedIcon from '@mui/icons-material/Speed';
 import { Car } from '../../type';
 
 interface CarItemProps {
-  name: string;
-  category: string;
-  image: string;
-  width: string;
-  height: string;
-  seats: number;
-  speed: string;
-  transmision: string;
-  price: number;
-  currency: string;
   car: Car;
 }
 export default function CarItem(props: CarItemProps) {
-  const {
-    name,
-    category,
-    image,
-    width,
-    height,
-    seats,
-    speed,
-    transmision,
-    currency,
-    price,
-    car,
-  } = props;
+  const { car } = props;
   const ItemDetail = styled(Typography)({
     display: 'flex',
     flexDirection: 'row',
@@ -77,12 +55,9 @@ export default function CarItem(props: CarItemProps) {
         }}
       >
         <div>
-          <Image
-            src={`/image/${image}`}
-            width={width}
-            height={height}
-          />
+          <Image src={car.urlImage} width={250} height={250} />
         </div>
+
         <Box
           sx={{
             width: '220px',
@@ -102,7 +77,7 @@ export default function CarItem(props: CarItemProps) {
               mt: '20px',
             }}
           >
-            {name}
+            {car.name}
           </Typography>
           <ItemDetail>
             <MinorCrashIcon
@@ -112,7 +87,7 @@ export default function CarItem(props: CarItemProps) {
                 height: '25px',
               }}
             />
-            {transmision}
+            {car.transmision}
           </ItemDetail>
           <ItemDetail
             sx={{
@@ -126,7 +101,7 @@ export default function CarItem(props: CarItemProps) {
                 height: '25px',
               }}
             />
-            {seats} Seats
+            {car.seat} Seats
           </ItemDetail>
           <ItemDetail>
             <DiamondIcon
@@ -136,7 +111,7 @@ export default function CarItem(props: CarItemProps) {
                 height: '25px',
               }}
             />
-            {category}
+            {car.categiry}
           </ItemDetail>
           <ItemDetail>
             <SpeedIcon
@@ -146,7 +121,7 @@ export default function CarItem(props: CarItemProps) {
                 height: '25px',
               }}
             />
-            {speed}
+            250/Kmh
           </ItemDetail>
         </Box>
         <Box
@@ -157,7 +132,7 @@ export default function CarItem(props: CarItemProps) {
           }}
         >
           <PriceText>
-            {currency} {price}
+            {car.currency} {car.cost}
             <DayText>/Day</DayText>
           </PriceText>
           <Button

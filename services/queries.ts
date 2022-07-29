@@ -9,7 +9,9 @@ export const allCarsQuery = () =>{
         seat,
         location,
         category,
-        currency
+        currency,
+        urlImage,
+        speed
     }` 
     return query;
 }
