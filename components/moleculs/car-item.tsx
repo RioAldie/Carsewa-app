@@ -2,6 +2,7 @@ import { Box, Button, styled, Typography } from '@mui/material';
 import Image from 'next/image';
 import AirlineSeatReclineNormalIcon from '@mui/icons-material/AirlineSeatReclineNormal';
 import MinorCrashIcon from '@mui/icons-material/MinorCrash';
+import CarCrashIcon from '@mui/icons-material/CarCrash';
 import DiamondIcon from '@mui/icons-material/Diamond';
 import SpeedIcon from '@mui/icons-material/Speed';
 import { Car } from '../../type';
@@ -15,7 +16,7 @@ export default function CarItem(props: CarItemProps) {
     display: 'flex',
     flexDirection: 'row',
     fontSize: '20px',
-    fontWeight: '600',
+    fontWeight: '500',
     color: '#9e9e9e',
     alignItems: 'center',
     width: '100px',
@@ -55,7 +56,11 @@ export default function CarItem(props: CarItemProps) {
         }}
       >
         <div>
-          <Image src={car.urlImage} width={250} height={250} />
+          <Image
+            src={car.urlImage}
+            width={car.width}
+            height={car.height}
+          />
         </div>
 
         <Box
@@ -80,7 +85,7 @@ export default function CarItem(props: CarItemProps) {
             {car.name}
           </Typography>
           <ItemDetail>
-            <MinorCrashIcon
+            <CarCrashIcon
               sx={{
                 fontSize: '28px',
                 color: '#9e9e9e',
@@ -111,7 +116,7 @@ export default function CarItem(props: CarItemProps) {
                 height: '25px',
               }}
             />
-            {car.categiry}
+            {car.category}
           </ItemDetail>
           <ItemDetail>
             <SpeedIcon
@@ -121,7 +126,7 @@ export default function CarItem(props: CarItemProps) {
                 height: '25px',
               }}
             />
-            250/Kmh
+            {car.speed}
           </ItemDetail>
         </Box>
         <Box

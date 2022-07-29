@@ -11,7 +11,9 @@ export const allCarsQuery = () =>{
         category,
         currency,
         urlImage,
-        speed
+        speed,
+        width,
+        height
     }` 
     return query;
 }

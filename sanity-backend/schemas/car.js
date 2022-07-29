@@ -65,5 +65,15 @@ export default {
       title: 'Speed',
       type: 'string',
     },
+    {
+      name: 'height',
+      title: 'Height',
+      type: 'number',
+    },
+    {
+      name: 'width',
+      title: 'Width',
+      type: 'number',
+    },
   ],
 };

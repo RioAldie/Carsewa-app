@@ -13,8 +13,10 @@ export interface Car{
     transmision: string,
     seat: number,
     currency: string,
-    categiry: string,
+    category: string,
     location: string,
     urlImage: string,
-    speed: string
+    speed: string,
+    width: number,
+    height: number
 }
