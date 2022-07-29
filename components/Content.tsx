@@ -1,8 +1,14 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import { Car } from '../type';
 import CarItem from './moleculs/car-item';
 import Categories from './organism/Category';
 
-export default function Content() {
+interface contentProps {
+  cars: Car[];
+}
+export default function Content(props: contentProps) {
+  const { cars } = props;
+  console.log('cars +>', cars);
   return (
     <>
       <Box
@@ -17,18 +23,28 @@ export default function Content() {
         }}
       >
         <Categories />
-        <CarItem
-          name={'Mitsubishi Xpander'}
-          category={'SUV'}
-          image={'mitsubishi_PNG161.png'}
-          width={'280'}
-          height={'158'}
-          seats={6}
-          speed={'225/Kmh'}
-          transmision={'Automatic'}
-          price={350000}
-          currency={'IDR'}
-        />
+        {cars.length ? (
+          cars.map((car) => {
+            return (
+              <CarItem
+                key={car.carId}
+                car={car}
+                name={'Mitsubishi Xpander'}
+                category={'SUV'}
+                image={'mitsubishi_PNG161.png'}
+                width={'280'}
+                height={'158'}
+                seats={6}
+                speed={'225/Kmh'}
+                transmision={'Automatic'}
+                price={350000}
+                currency={'IDR'}
+              />
+            );
+          })
+        ) : (
+          <Typography>No Result</Typography>
+        )}
       </Box>
     </>
   );

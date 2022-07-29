@@ -4,6 +4,7 @@ import AirlineSeatReclineNormalIcon from '@mui/icons-material/AirlineSeatRecline
 import MinorCrashIcon from '@mui/icons-material/MinorCrash';
 import DiamondIcon from '@mui/icons-material/Diamond';
 import SpeedIcon from '@mui/icons-material/Speed';
+import { Car } from '../../type';
 
 interface CarItemProps {
   name: string;
@@ -16,6 +17,7 @@ interface CarItemProps {
   transmision: string;
   price: number;
   currency: string;
+  car: Car;
 }
 export default function CarItem(props: CarItemProps) {
   const {
@@ -29,6 +31,7 @@ export default function CarItem(props: CarItemProps) {
     transmision,
     currency,
     price,
+    car,
   } = props;
   const ItemDetail = styled(Typography)({
     display: 'flex',

@@ -5,7 +5,11 @@ export const allCarsQuery = () =>{
         image,
         cost,
         brand,
-        transmision
+        transmision,
+        seat,
+        location,
+        category,
+        currency
     }` 
     return query;
 }

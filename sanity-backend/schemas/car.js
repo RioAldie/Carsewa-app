@@ -1,3 +1,5 @@
+import { Category } from '@mui/icons-material';
+
 export default {
   name: 'car',
   title: 'Car',
@@ -5,38 +7,53 @@ export default {
   fields: [
     {
       name: 'name',
-      title: 'Car name',
+      title: 'name',
       type: 'string',
     },
     {
       name: 'image',
-      title: 'Car image',
-      type: 'string',
+      title: 'image',
+      type: 'file',
     },
     {
       name: 'carId',
-      title: 'Car Id',
+      title: 'Id',
       type: 'string',
     },
     {
       name: 'cost',
-      title: 'Car Rental Cost',
+      title: 'Rental Cost',
       type: 'number',
     },
     {
       name: 'brand',
-      title: 'Car Brand',
+      title: 'Brand',
       type: 'string',
     },
     {
       name: 'transmision',
-      title: 'Car Transmision',
+      title: 'Transmision',
       type: 'string',
     },
     {
       name: 'seat',
-      title: 'Car seat',
+      title: 'Seats',
       type: 'number',
+    },
+    {
+      name: 'location',
+      title: 'Location',
+      type: 'string',
+    },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+    },
+    {
+      name: 'currency',
+      title: 'Currency',
+      type: 'string',
     },
   ],
 };
