@@ -5,7 +5,8 @@ import Banner from '../components/Banner';
 import Content from '../components/Content';
 import axios from 'axios';
 
-const Rental: NextPage = () => {
+const Rental: NextPage = ({ cars }) => {
+  console.log(cars);
   return (
     <>
       <Head>
@@ -22,11 +23,12 @@ const Rental: NextPage = () => {
   );
 };
 export const getServerSideProps = async () => {
-  const response = await axios.get('http://localhost:3000/api/post');
-  console.log(response.data.name);
+  const { data } = await axios.get('http://localhost:3000/api/post');
 
   return {
-    props: {},
+    props: {
+      cars: data,
+    },
   };
 };
 export default Rental;
