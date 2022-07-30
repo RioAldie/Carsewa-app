@@ -1,13 +1,11 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
-import { display } from '@mui/system';
 import Head from 'next/head';
 import Image from 'next/image';
-
-export default function Signin() {
+export default function Signup() {
   return (
     <>
       <Head>
-        <title>carsewa-login</title>
+        <title>carsewa-join</title>
         <link
           rel="icon"
           type="image/x-icon"
@@ -21,7 +19,8 @@ export default function Signin() {
           alignItems: 'center',
           justifySelf: 'cenetr',
           width: '100%',
-          minHeight: '80vh',
+          minHeight: '100vh',
+          maxHeight: '200vh',
           justifyContent: 'space-evenly',
           padding: '20px',
           mt: '50px',
@@ -41,11 +40,21 @@ export default function Signin() {
             textAlign: 'center',
           }}
         >
-          Login To Your Account
+          Join and enjoy your ride
         </Typography>
         <TextField
           id="outlined-basic"
+          label="Fullname"
+          variant="outlined"
+          sx={{
+            maxWidth: '450px',
+            minWidth: '360px',
+          }}
+        />
+        <TextField
+          id="outlined-basic"
           label="Email"
+          type={'email'}
           variant="outlined"
           sx={{
             maxWidth: '450px',
@@ -55,6 +64,36 @@ export default function Signin() {
         <TextField
           id="outlined-basic"
           label="Password"
+          type={'password'}
+          variant="outlined"
+          sx={{
+            maxWidth: '450px',
+            minWidth: '360px',
+          }}
+        />
+        <TextField
+          id="outlined-basic"
+          label="ID Card"
+          type={'number'}
+          variant="outlined"
+          sx={{
+            maxWidth: '450px',
+            minWidth: '360px',
+          }}
+        />
+        <TextField
+          id="outlined-basic"
+          label="ID driver License"
+          type={'number'}
+          variant="outlined"
+          sx={{
+            maxWidth: '450px',
+            minWidth: '360px',
+          }}
+        />
+        <TextField
+          id="outlined-basic"
+          label="Location"
           variant="outlined"
           sx={{
             maxWidth: '450px',
@@ -72,13 +111,12 @@ export default function Signin() {
             variant="contained"
             sx={{
               textTransform: 'none',
-              width: '124px',
               height: '50px',
               fontSize: '22px',
               fontWeight: '00',
             }}
           >
-            Login
+            SIGN UP
           </Button>
         </Box>
         <Typography
@@ -89,14 +127,14 @@ export default function Signin() {
             textAlign: 'center',
           }}
         >
-          Don't have an Account?{' '}
+          Have an Account?{' '}
           <span
             style={{
               color: '#FF3951',
               cursor: 'pointer',
             }}
           >
-            Join here
+            Login here
           </span>
         </Typography>
       </Box>
