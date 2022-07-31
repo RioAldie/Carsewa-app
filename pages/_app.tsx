@@ -29,7 +29,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <Box>
+        <Box
+          sx={{
+            bgcolor: '#F3F3F4',
+          }}
+        >
           <Navbar />
           <Component {...pageProps} />
           <Footer />
