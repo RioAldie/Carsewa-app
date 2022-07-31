@@ -1,7 +1,18 @@
-import { Box, Button, styled } from '@mui/material';
+import {
+  Box,
+  Button,
+  styled,
+  TextField,
+  Typography,
+} from '@mui/material';
+import Image from 'next/image';
 import ProfileBar from '../components/organism/Menu-profile';
+import VerifiedIcon from '@mui/icons-material/Verified';
+import ProfilePreview from '../components/organism/Profile-preview';
+import { useState } from 'react';
 
 export default function Profile() {
+  const [view, setView] = useState('edit');
   return (
     <>
       <Box
@@ -22,15 +33,18 @@ export default function Profile() {
               sm: '90%',
               xs: '95%',
             },
-            height: '100vh',
+            mb: '20px',
+            pb: '40px',
             bgcolor: '#fff',
             mt: '100px',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            minHeight: '100vh',
           }}
         >
           <ProfileBar />
+          {view === 'profile' ? <ProfilePreview /> : null}
         </Box>
       </Box>
     </>
