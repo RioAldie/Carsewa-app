@@ -10,11 +10,21 @@ import ProfileBar from '../components/organism/Menu-profile';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import ProfilePreview from '../components/organism/Profile-preview';
 import { useState } from 'react';
+import EditProfile from '../components/organism/Edit-profile';
+import Head from 'next/head';
 
 export default function Profile() {
   const [view, setView] = useState('edit');
   return (
     <>
+      <Head>
+        <title>carsewa-profile</title>
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="/icons/logo-cs.svg"
+        ></link>
+      </Head>
       <Box
         sx={{
           width: '100%',
@@ -45,6 +55,7 @@ export default function Profile() {
         >
           <ProfileBar />
           {view === 'profile' ? <ProfilePreview /> : null}
+          <EditProfile />
         </Box>
       </Box>
     </>
