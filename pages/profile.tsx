@@ -13,6 +13,7 @@ import { useState } from 'react';
 import EditProfile from '../components/organism/Edit-profile';
 import Head from 'next/head';
 import Payments from '../components/organism/Payments';
+import History from '../components/organism/History';
 
 export default function Profile() {
   const [view, setView] = useState('edit');
@@ -56,7 +57,7 @@ export default function Profile() {
         >
           <ProfileBar />
           {view === 'profile' ? <ProfilePreview /> : null}
-          <Payments />
+          <History />
         </Box>
       </Box>
     </>
