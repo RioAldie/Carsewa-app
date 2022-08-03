@@ -98,7 +98,24 @@ const History = () => {
           </HeadText>
         </Box>
       </Box>
-      <HistoryItem />
+      <HistoryItem
+        carname={'Honda CR-V Black edition'}
+        image={'/image/honda_PNG102934.png'}
+        status={'active'}
+        pickdate={'22 Aug'}
+        returndate={'29 Aug'}
+        location={'Surabaya'}
+        paid={'IDR 500000'}
+      />
+      <HistoryItem
+        carname={'Honda Accord 2022'}
+        image={'/image/honda_PNG10330.png'}
+        status={'active'}
+        pickdate={'10 Jun'}
+        returndate={'11 Jun'}
+        location={'Jakarta'}
+        paid={'IDR 499000'}
+      />
     </>
   );
 };

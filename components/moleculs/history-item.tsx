@@ -1,8 +1,26 @@
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import CircleIcon from '@mui/icons-material/Circle';
+interface HistoryItemProps {
+  carname: string;
+  image: string;
+  status: string;
+  pickdate: string;
+  returndate: string;
+  location: string;
+  paid: string;
+}
 
-const HistoryItem = () => {
+const HistoryItem = (props: HistoryItemProps) => {
+  const {
+    carname,
+    image,
+    status,
+    pickdate,
+    returndate,
+    location,
+    paid,
+  } = props;
   const StatusActiv = () => {
     return (
       <Box
@@ -29,6 +47,7 @@ const HistoryItem = () => {
         width: '90%',
         alignItems: 'center',
         justifyContent: 'space-evenly',
+        mt: '50px',
       }}
     >
       <Box
@@ -48,18 +67,13 @@ const HistoryItem = () => {
             fontWeight: '600',
           }}
         >
-          Honda CR-V black edition
+          {carname}
         </Typography>
-        <Image
-          src={'/image/honda_PNG102934.png'}
-          width={100}
-          height={62}
-        />
+        <Image src={image} width={100} height={62} />
       </Box>
       <Box
         sx={{
           width: '150px',
-
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -70,7 +84,6 @@ const HistoryItem = () => {
       <Box
         sx={{
           width: '150px',
-
           display: {
             xs: 'none',
             sm: 'none',
@@ -83,7 +96,7 @@ const HistoryItem = () => {
           fontWeight: '500',
         }}
       >
-        22 Aug
+        {pickdate}
       </Box>
       <Box
         sx={{
@@ -101,7 +114,7 @@ const HistoryItem = () => {
           fontWeight: '500',
         }}
       >
-        25 Aug
+        {returndate}
       </Box>
       <Box
         sx={{
@@ -119,7 +132,7 @@ const HistoryItem = () => {
           fontWeight: '600',
         }}
       >
-        Surabaya
+        {location}
       </Box>
 
       <Box
@@ -129,11 +142,10 @@ const HistoryItem = () => {
           fontSize: '20px',
           color: '#EB1D36',
           fontWeight: '600',
-
           textAlign: 'center',
         }}
       >
-        IDR 500.000
+        {paid}
       </Box>
     </Box>
   );
