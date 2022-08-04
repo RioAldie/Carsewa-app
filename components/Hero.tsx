@@ -1,4 +1,5 @@
 import { Box, Button, styled, Typography } from '@mui/material';
+import Link from 'next/link';
 
 export default function Hero() {
   const MainText = styled('p')({
@@ -47,17 +48,19 @@ export default function Hero() {
           Rent a Car Whenever and Whereever with Carsewa, Easy and
           Quick Steps,Only find, book and you can Ride a Car .
         </SecondText>
-        <Button
-          variant="contained"
-          sx={{
-            bgcolor: '#EB1D36',
-            width: '150px',
-            height: '50px',
-            borderRadius: '5px',
-          }}
-        >
-          Join Now
-        </Button>
+        <Link href={'/signup'}>
+          <Button
+            variant="contained"
+            sx={{
+              bgcolor: '#EB1D36',
+              width: '150px',
+              height: '50px',
+              borderRadius: '5px',
+            }}
+          >
+            Join Now
+          </Button>
+        </Link>
       </BoxHero>
     </>
   );

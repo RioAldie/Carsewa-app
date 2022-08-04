@@ -1,5 +1,5 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
-import { display } from '@mui/system';
+import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -25,6 +25,7 @@ export default function Signin() {
           justifyContent: 'space-evenly',
           padding: '20px',
           mt: '50px',
+          bgcolor: '#fff',
         }}
       >
         <Image
@@ -90,14 +91,16 @@ export default function Signin() {
           }}
         >
           Don't have an Account?{' '}
-          <span
-            style={{
-              color: '#FF3951',
-              cursor: 'pointer',
-            }}
-          >
-            Join here
-          </span>
+          <Link href={'/signup'}>
+            <span
+              style={{
+                color: '#FF3951',
+                cursor: 'pointer',
+              }}
+            >
+              Join here
+            </span>
+          </Link>
         </Typography>
       </Box>
     </>

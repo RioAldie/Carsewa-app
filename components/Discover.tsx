@@ -4,6 +4,7 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import PopularItem from './moleculs/popular-item';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import Link from 'next/link';
 
 export default function Discover() {
   const MainText = styled('p')({
@@ -238,27 +239,29 @@ export default function Discover() {
           widht={250}
         />
       </Box>
-      <ButtonStyled
-        variant="outlined"
-        sx={{
-          display: 'flex',
-          alignSelf: 'center',
-          mt: { xs: '30px', md: '0px' },
-        }}
-      >
-        <Typography
+      <Link href={'/rental'}>
+        <ButtonStyled
+          variant="outlined"
           sx={{
-            fontSize: '16px',
-            fontWeight: '600',
-            color: '#ff3951',
             display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
+            alignSelf: 'center',
+            mt: { xs: '30px', md: '0px' },
           }}
         >
-          Show All Vehicles <ArrowRightAltIcon />
-        </Typography>
-      </ButtonStyled>
+          <Typography
+            sx={{
+              fontSize: '16px',
+              fontWeight: '600',
+              color: '#ff3951',
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}
+          >
+            Show All Vehicles <ArrowRightAltIcon />
+          </Typography>
+        </ButtonStyled>
+      </Link>
     </>
   );
 }

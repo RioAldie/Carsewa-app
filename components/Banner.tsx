@@ -40,6 +40,7 @@ export default function Banner() {
             },
             fontWeight: '700',
             lineHeight: '83px',
+            zIndex: '100',
           }}
         >
           Enjoy Your Ride With
@@ -64,7 +65,7 @@ export default function Banner() {
           sx={{
             width: '100%',
             height: '464px',
-            zIndex: '-10000',
+            zIndex: '10',
           }}
         ></CardMedia>
       </Box>

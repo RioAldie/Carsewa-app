@@ -1,6 +1,8 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
+
 export default function Signup() {
   return (
     <>
@@ -128,14 +130,16 @@ export default function Signup() {
           }}
         >
           Have an Account?{' '}
-          <span
-            style={{
-              color: '#FF3951',
-              cursor: 'pointer',
-            }}
-          >
-            Login here
-          </span>
+          <Link href={'/signin'}>
+            <span
+              style={{
+                color: '#FF3951',
+                cursor: 'pointer',
+              }}
+            >
+              Login here
+            </span>
+          </Link>
         </Typography>
       </Box>
     </>
