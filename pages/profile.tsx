@@ -9,7 +9,7 @@ import Image from 'next/image';
 import ProfileBar from '../components/organism/Menu-profile';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import ProfilePreview from '../components/organism/Profile-preview';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import EditProfile from '../components/organism/Edit-profile';
 import Head from 'next/head';
 import Payments from '../components/organism/Payments';
@@ -18,6 +18,28 @@ import Mails from '../components/organism/Mails';
 
 export default function Profile() {
   const [view, setView] = useState('edit');
+  const [actived, setActived] = useState('Profile');
+
+  const SectionActive = (actived: string) => {
+    if (actived === 'Profile') {
+      return <ProfilePreview />;
+    }
+    if (actived === 'Edit') {
+      return <EditProfile />;
+    }
+    if (actived === 'Bank') {
+      return <Payments />;
+    }
+    if (actived === 'Status') {
+      return <History />;
+    }
+    if (actived === 'Mail') {
+      return <Mails />;
+    }
+  };
+  useEffect(() => {
+    console.log(actived);
+  }, [actived]);
   return (
     <>
       <Head>
@@ -56,9 +78,8 @@ export default function Profile() {
             minHeight: '100vh',
           }}
         >
-          <ProfileBar />
-          {view === 'profile' ? <ProfilePreview /> : null}
-          <Mails />
+          <ProfileBar actived={actived} setActived={setActived} />
+          {SectionActive(actived)}
         </Box>
       </Box>
     </>

@@ -73,6 +73,7 @@ export default function ProfilePreview() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            mt: '70px',
           }}
         >
           <Box

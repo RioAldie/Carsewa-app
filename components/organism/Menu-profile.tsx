@@ -1,8 +1,19 @@
 import { Box, Button, styled } from '@mui/material';
-import { useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 
-export default function ProfileBar() {
+interface ProfileBarProps {
+  actived: string;
+  setActived: React.Dispatch<SetStateAction<string>>;
+}
+export default function ProfileBar(props: ProfileBarProps) {
   const [bar, setBar] = useState('Profile');
+  const { actived, setActived } = props;
+
+  const handleBarActive = (item: string) => {
+    setBar(item != bar ? item : bar);
+    setActived(item != bar ? item : bar);
+  };
+
   const AllMenuProfile = [
     'Profile',
     'Edit',
@@ -43,7 +54,7 @@ export default function ProfileBar() {
             <MenuItem
               key={item}
               sx={item === bar ? active : null}
-              onClick={(e) => setBar(item != bar ? item : bar)}
+              onClick={(e) => handleBarActive(item)}
             >
               {item}
             </MenuItem>
