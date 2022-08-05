@@ -2,6 +2,8 @@ import { Box, Button, TextField, Typography } from '@mui/material';
 import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
+import { GoogleLogin, googleLogout } from '@react-oauth/google';
+import { createAndGetUser } from '../services';
 
 export default function Signin() {
   return (
@@ -62,6 +64,16 @@ export default function Signin() {
             minWidth: '360px',
           }}
         />
+
+        <GoogleLogin
+          onSuccess={(response) => {
+            createAndGetUser(response);
+          }}
+          onError={() => {
+            console.log('error');
+          }}
+        />
+
         <Box
           sx={{
             maxWidth: '450px',

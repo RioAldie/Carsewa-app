@@ -9,9 +9,11 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 import MenuOpenRoundedIcon from '@mui/icons-material/MenuOpenRounded';
+import { GoogleLogin, googleLogout } from '@react-oauth/google';
 import Link from 'next/link';
 
 export default function Navbar() {
+  const user = false;
   const Navtext = styled(Typography)({
     color: '#000',
     fontFamily: 'roboto',
