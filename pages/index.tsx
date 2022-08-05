@@ -21,7 +21,13 @@ const Home: NextPage = () => {
           href="/icons/logo-cs.svg"
         ></link>
       </Head>
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          bgcolor: '#fff',
+        }}
+      >
         <Box
           mt={10}
           sx={{

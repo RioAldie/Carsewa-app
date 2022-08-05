@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import '../styles/globals.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-// When using TypeScript 4.x and above
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import type {} from '@mui/x-data-grid/themeAugmentation';
 import Footer from '../components/Footer';
 
@@ -28,17 +28,21 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <CssBaseline />
-      <ThemeProvider theme={theme}>
-        <Box
-          sx={{
-            bgcolor: '#F3F3F4',
-          }}
-        >
-          <Navbar />
-          <Component {...pageProps} />
-          <Footer />
-        </Box>
-      </ThemeProvider>
+      <GoogleOAuthProvider
+        clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}
+      >
+        <ThemeProvider theme={theme}>
+          <Box
+            sx={{
+              bgcolor: '#F3F3F4',
+            }}
+          >
+            <Navbar />
+            <Component {...pageProps} />
+            <Footer />
+          </Box>
+        </ThemeProvider>
+      </GoogleOAuthProvider>
     </>
   );
 };

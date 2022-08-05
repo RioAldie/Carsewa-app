@@ -8,7 +8,6 @@ interface contentProps {
 }
 export default function Content(props: contentProps) {
   const { cars } = props;
-  console.log('cars +>', cars);
   return (
     <>
       <Box
