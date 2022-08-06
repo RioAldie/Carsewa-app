@@ -2,7 +2,7 @@ import axios from "axios";
 import jwtDecode from "jwt-decode"
 import { stringify } from "querystring";
 
-export const createAndGetUser = async (response: any) => {
+export const createAndGetUser = async (response: any, addUser: any) => {
     const decode: { name: string, picture: string, sub: string, email: string} = jwtDecode(response.credential);
     const { name, picture, sub, email} = decode;
 
@@ -13,6 +13,7 @@ export const createAndGetUser = async (response: any) => {
         image: picture
     }
 
-    await axios.post('http://localhost:3000/api/auth',user)
+    addUser(user);
+    await axios.post('http://localhost:3000/api/auth',user);
 }
 

@@ -4,8 +4,12 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { GoogleLogin, googleLogout } from '@react-oauth/google';
 import { createAndGetUser } from '../services';
-
+import useAuthStore from '../store/AuthStore';
+import { useRouter } from 'next/router';
 export default function Signin() {
+  const { userProfile, addUser } = useAuthStore();
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -67,7 +71,8 @@ export default function Signin() {
 
         <GoogleLogin
           onSuccess={(response) => {
-            createAndGetUser(response);
+            createAndGetUser(response, addUser);
+            router.push('/rental');
           }}
           onError={() => {
             console.log('error');

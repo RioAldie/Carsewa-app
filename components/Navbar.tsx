@@ -6,14 +6,19 @@ import {
   styled,
   Toolbar,
   Typography,
+  Avatar,
+  Button,
 } from '@mui/material';
 import Image from 'next/image';
 import MenuOpenRoundedIcon from '@mui/icons-material/MenuOpenRounded';
-import { GoogleLogin, googleLogout } from '@react-oauth/google';
+import useAuthStore from '../store/AuthStore';
 import Link from 'next/link';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { googleLogout } from '@react-oauth/google';
 
 export default function Navbar() {
   const user = false;
+  const { userProfile, addUser, removeUser } = useAuthStore();
   const Navtext = styled(Typography)({
     color: '#000',
     fontFamily: 'roboto',
@@ -21,6 +26,24 @@ export default function Navbar() {
     fontWeight: 'bold',
     fontSize: '14px',
   });
+  const UserAvatar = (props: any) => {
+    const { userName, image } = props;
+    return (
+      <Button
+        variant="contained"
+        sx={{
+          textTransform: 'none',
+          mr: '10px',
+        }}
+      >
+        <Avatar
+          src={image}
+          sx={{ width: 24, height: 24, mr: '5px' }}
+        />
+        <Typography>{userName}</Typography>
+      </Button>
+    );
+  };
   return (
     <>
       <Box>
@@ -59,15 +82,36 @@ export default function Navbar() {
                 <ListItemButton>
                   <Navtext>Why Chosen us</Navtext>
                 </ListItemButton>
-                <Link href={'/signin'}>
-                  <ListItemButton>
-                    <Navtext
-                      sx={{ color: '#EB1D36', fontSize: '20px' }}
+
+                {userProfile ? (
+                  <div>
+                    <Link href={'/profile'}>
+                      <UserAvatar
+                        userName={userProfile.userName}
+                        image={userProfile.image}
+                      />
+                    </Link>
+                    <Button
+                      variant="outlined"
+                      onClick={() => {
+                        googleLogout();
+                        removeUser();
+                      }}
                     >
-                      Login
-                    </Navtext>
-                  </ListItemButton>
-                </Link>
+                      <ExitToAppIcon />
+                    </Button>
+                  </div>
+                ) : (
+                  <Link href={'/signin'}>
+                    <ListItemButton>
+                      <Navtext
+                        sx={{ color: '#EB1D36', fontSize: '20px' }}
+                      >
+                        Login
+                      </Navtext>
+                    </ListItemButton>
+                  </Link>
+                )}
               </List>
             </Box>
             <Box
