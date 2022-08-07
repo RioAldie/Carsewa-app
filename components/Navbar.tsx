@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 import MenuOpenRoundedIcon from '@mui/icons-material/MenuOpenRounded';
-import useAuthStore from '../store/AuthStore';
+import useAuthStore from '../store/authStore';
 import Link from 'next/link';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { googleLogout } from '@react-oauth/google';
