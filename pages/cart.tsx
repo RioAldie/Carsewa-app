@@ -1,13 +1,11 @@
-import { Scale } from '@mui/icons-material';
+import * as React from 'react';
 import { Box, Button, styled, Typography } from '@mui/material';
 import CarDetail from '../components/organism/CarDetail';
-import Image from 'next/image';
 import CounterCheckout from '../components/organism/CounterCheckout';
 import Head from 'next/head';
-import Search from '../components/Seacrh';
 import PickDate from '../components/organism/PickDate';
 
-const cart = () => {
+export default function Cart() {
   return (
     <>
       <Head>
@@ -32,7 +30,7 @@ const cart = () => {
         <Box
           sx={{
             width: '90%',
-            minHeight: '90vh',
+            minHeight: '100vh',
             background: '#fff',
             display: 'flex',
             justifySelf: 'center',
@@ -59,6 +57,4 @@ const cart = () => {
       </Box>
     </>
   );
-};
-
-export default cart;
+}

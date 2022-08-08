@@ -16,19 +16,7 @@ import AddressForm from '../components/AddressForm';
 import PaymentForm from '../components/PaymentForm';
 import Review from '../components/Review';
 import Navbar from '../components/Navbar';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import Head from 'next/head';
 
 const steps = [
   'Shipping address',
@@ -62,6 +50,14 @@ export default function Checkout() {
 
   return (
     <>
+      <Head>
+        <title>carsewa-checkout</title>
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="/icons/logo-cs.svg"
+        ></link>
+      </Head>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper
           variant="outlined"
@@ -109,7 +105,7 @@ export default function Checkout() {
                     sx={{ mt: 3, ml: 1 }}
                   >
                     {activeStep === steps.length - 1
-                      ? 'Place order'
+                      ? 'Finish'
                       : 'Next'}
                   </Button>
                 </Box>
