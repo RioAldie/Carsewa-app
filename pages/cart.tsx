@@ -4,6 +4,8 @@ import CarDetail from '../components/organism/CarDetail';
 import Image from 'next/image';
 import CounterCheckout from '../components/organism/CounterCheckout';
 import Head from 'next/head';
+import Search from '../components/Seacrh';
+import PickDate from '../components/organism/PickDate';
 
 const cart = () => {
   return (
@@ -51,7 +53,7 @@ const cart = () => {
             }}
           >
             <CounterCheckout />
-            <Box></Box>
+            <PickDate />
           </Box>
         </Box>
       </Box>
