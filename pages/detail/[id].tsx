@@ -1,11 +1,25 @@
 import * as React from 'react';
 import { Box, Button, styled, Typography } from '@mui/material';
-import CarDetail from '../components/organism/CarDetail';
-import CounterCheckout from '../components/organism/CounterCheckout';
+import CarDetail from '../../components/organism/CarDetail';
+import CounterCheckout from '../../components/organism/CounterCheckout';
 import Head from 'next/head';
-import PickDate from '../components/organism/PickDate';
+import PickDate from '../../components/organism/PickDate';
+import axios from 'axios';
+import { getCarDetails } from '../api/car';
+import { useRouter } from 'next/router';
 
-export default function Cart() {
+export default function Detail() {
+  const { query, isReady } = useRouter();
+  const getCarDetailAPI = React.useCallback(async (id: any) => {
+    const data = await getCarDetails(id);
+
+    console.log(data);
+  }, []);
+  React.useEffect(() => {
+    if (isReady) {
+      getCarDetailAPI(query.id);
+    }
+  }, []);
   return (
     <>
       <Head>

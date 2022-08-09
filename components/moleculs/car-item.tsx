@@ -5,6 +5,7 @@ import MinorCrashIcon from '@mui/icons-material/MinorCrash';
 import CarCrashIcon from '@mui/icons-material/CarCrash';
 import DiamondIcon from '@mui/icons-material/Diamond';
 import SpeedIcon from '@mui/icons-material/Speed';
+import Link from 'next/link';
 import { Car } from '../../type';
 
 interface CarItemProps {
@@ -140,17 +141,19 @@ export default function CarItem(props: CarItemProps) {
             {car.currency} {car.cost}
             <DayText>/Day</DayText>
           </PriceText>
-          <Button
-            sx={{
-              width: '259px',
-              height: '48px',
-              bgcolor: '#EB1D36',
-              borderRadius: '32px',
-            }}
-            variant="contained"
-          >
-            continue
-          </Button>
+          <Link href={`/detail/${car.carId}`}>
+            <Button
+              sx={{
+                width: '259px',
+                height: '48px',
+                bgcolor: '#EB1D36',
+                borderRadius: '32px',
+              }}
+              variant="contained"
+            >
+              continue
+            </Button>
+          </Link>
         </Box>
       </Box>
     </>
