@@ -1,15 +1,23 @@
 import {
   Box,
   Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
   styled,
   TextField,
   Typography,
 } from '@mui/material';
 import DaySelect from '../moleculs/day-select';
 import LocationSelect from '../moleculs/location-select';
-import SearchIcon from '@mui/icons-material/Search';
 
-const PickDate = () => {
+interface PickDateProps {
+  location: string;
+}
+
+const PickDate = (props: PickDateProps) => {
+  const { location } = props;
   const BoxMain = styled(Box)({
     minHeight: '130px',
     display: 'flex',
@@ -42,7 +50,24 @@ const PickDate = () => {
         <Typography variant="h6" fontWeight={'bold'} fontSize={16}>
           Location
         </Typography>
-        <LocationSelect />
+        <Box sx={{ minWidth: 120 }}>
+          <FormControl
+            variant="standard"
+            sx={{ m: 1, minWidth: 120 }}
+            disabled
+          >
+            <Select
+              labelId="demo-simple-select-disabled-label"
+              id="demo-simple-select-disabled"
+              value={location}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={location}>{location}</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
       </Box>
       <Box
         sx={{

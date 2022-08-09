@@ -50,6 +50,8 @@ export default function Detail() {
   React.useEffect(() => {
     if (isReady) {
       getCarDetailAPI(query.id);
+    } else {
+      console.log('Router belum siap');
     }
   }, []);
   return (
@@ -96,8 +98,8 @@ export default function Detail() {
               flexDirection: 'column',
             }}
           >
-            <CounterCheckout />
-            <PickDate />
+            <CounterCheckout car={car} />
+            <PickDate location={car.location} />
           </Box>
         </Box>
       </Box>

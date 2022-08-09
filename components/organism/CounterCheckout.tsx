@@ -5,9 +5,13 @@ import DiamondIcon from '@mui/icons-material/Diamond';
 import SpeedIcon from '@mui/icons-material/Speed';
 import { useEffect, useState } from 'react';
 
-const CounterCheckout = () => {
+interface CounterCheckoutProps {
+  car: any;
+}
+const CounterCheckout = (props: CounterCheckoutProps) => {
   const [quantity, setQuantity] = useState(1);
-  const cost = 320000;
+  const { car } = props;
+  const { speed, category, transmision, seat, cost, currency } = car;
   const [totalCost, setTotalCost] = useState(cost);
   const handleMin = () => {
     if (quantity > 1) {
@@ -79,18 +83,19 @@ const CounterCheckout = () => {
       >
         <ItemDetail>
           <CarCrashIcon />
-          Manual
+          {transmision}
         </ItemDetail>
         <ItemDetail>
-          <AirlineSeatReclineNormalIcon />6 Seats
+          <AirlineSeatReclineNormalIcon />
+          {seat} Seats
         </ItemDetail>
         <ItemDetail>
           <DiamondIcon />
-          SUV
+          {category}
         </ItemDetail>
         <ItemDetail>
           <SpeedIcon />
-          302/Kmh
+          {speed}
         </ItemDetail>
       </Box>
       <Box
@@ -171,7 +176,7 @@ const CounterCheckout = () => {
               width: '350px',
             }}
           >
-            IDR {totalCost}
+            {currency} {totalCost === 0 ? cost : totalCost}
           </PriceText>
         </Box>
       </Box>
