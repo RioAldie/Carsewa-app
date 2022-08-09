@@ -1,5 +1,5 @@
-import { Scale } from '@mui/icons-material';
 import { Box, styled, Typography } from '@mui/material';
+import { Car } from '../../type';
 import Image from 'next/image';
 const Title = styled('p')({
   width: '400px',
@@ -33,7 +33,15 @@ const DayText = styled('span')({
   fontWeight: '500',
   lineHeight: '23px',
 });
-const CarDetail = () => {
+
+interface CarDetailProps {
+  car: any;
+  urlImage: string;
+}
+
+const CarDetail = (props: CarDetailProps) => {
+  const { car, urlImage } = props;
+  const { name, cost, currency } = car;
   return (
     <Box
       sx={{
@@ -57,7 +65,7 @@ const CarDetail = () => {
         }}
       >
         <Image
-          src={'/image/honda_PNG102934.png'}
+          src={`${urlImage ? urlImage : '/image/'}`}
           layout={'fill'}
           objectFit="contain"
         />
@@ -76,10 +84,10 @@ const CarDetail = () => {
             position: 'relative',
           }}
         >
-          IDR 320000
+          {currency} {cost}
           <DayText>/Day</DayText>
         </PriceText>
-        <Title>Honda CR-V Black edition</Title>
+        <Title>{name}</Title>
         <BodyText>
           The Honda CR-V is a compact crossover SUV manufactured by
           the Japanese automaker Honda since 1995 and introduced in

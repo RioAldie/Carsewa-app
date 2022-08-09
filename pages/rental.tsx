@@ -12,7 +12,6 @@ interface RentalProps {
   cars: Car[];
 }
 const Rental = ({ cars }: RentalProps) => {
-  console.log(cars);
   return (
     <>
       <Head>

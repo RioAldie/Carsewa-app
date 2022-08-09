@@ -10,10 +10,42 @@ import { useRouter } from 'next/router';
 
 export default function Detail() {
   const { query, isReady } = useRouter();
+  const [car, setCar] = React.useState({
+    name: '',
+    urlImage: '',
+    cost: 0,
+    currency: '',
+    location: '',
+    category: '',
+    speed: '',
+    transmision: '',
+    seat: 0,
+  });
   const getCarDetailAPI = React.useCallback(async (id: any) => {
     const data = await getCarDetails(id);
+    const {
+      name,
+      cost,
+      urlImage,
+      location,
+      currency,
+      category,
+      speed,
+      transmision,
+      seat,
+    } = data;
 
-    console.log(data);
+    setCar({
+      name: name,
+      urlImage: urlImage,
+      cost: cost,
+      currency: currency,
+      location: location,
+      category: category,
+      speed: speed,
+      transmision: transmision,
+      seat: seat,
+    });
   }, []);
   React.useEffect(() => {
     if (isReady) {
@@ -55,7 +87,7 @@ export default function Detail() {
             flexDirection: 'column',
           }}
         >
-          <CarDetail />
+          <CarDetail car={car} urlImage={car.urlImage} />
           <Box
             sx={{
               width: '95%',
