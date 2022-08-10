@@ -10,6 +10,8 @@ import { useRouter } from 'next/router';
 
 export default function Detail() {
   const { query, isReady } = useRouter();
+  const [totalCost, setTotalCost] = React.useState(0);
+  const [rentalOrder, setRentalOrder] = React.useState({});
   const [car, setCar] = React.useState({
     name: '',
     urlImage: '',
@@ -46,7 +48,17 @@ export default function Detail() {
       transmision: transmision,
       seat: seat,
     });
+    getRentalOrder(data, cost);
   }, []);
+  const getTotalCost = (total: number) => {
+    setTotalCost(total);
+    getRentalOrder(car, total);
+  };
+  const getRentalOrder = (car: any, total: number) => {
+    const newobj = { ...car, totalCost: total };
+    return console.log(newobj);
+    //setRentalOrder({ ...car,totalCost: total})
+  };
   React.useEffect(() => {
     if (isReady) {
       getCarDetailAPI(query.id);
@@ -98,7 +110,7 @@ export default function Detail() {
               flexDirection: 'column',
             }}
           >
-            <CounterCheckout car={car} />
+            <CounterCheckout car={car} setTotal={getTotalCost} />
             <PickDate location={car.location} />
           </Box>
         </Box>

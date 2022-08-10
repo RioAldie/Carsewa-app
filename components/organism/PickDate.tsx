@@ -18,6 +18,7 @@ interface PickDateProps {
 
 const PickDate = (props: PickDateProps) => {
   const { location } = props;
+
   const BoxMain = styled(Box)({
     minHeight: '130px',
     display: 'flex',

@@ -1,4 +1,4 @@
-import { Box, styled, Typography } from '@mui/material';
+import { Box, Skeleton, styled, Typography } from '@mui/material';
 import { Car } from '../../type';
 import Image from 'next/image';
 const Title = styled('p')({
@@ -39,6 +39,16 @@ interface CarDetailProps {
   urlImage: string;
 }
 
+const Loading = () => {
+  return (
+    <Skeleton
+      sx={{ bgcolor: 'grey.900' }}
+      variant="rectangular"
+      width={210}
+      height={118}
+    />
+  );
+};
 const CarDetail = (props: CarDetailProps) => {
   const { car, urlImage } = props;
   const { name, cost, currency } = car;
@@ -59,16 +69,20 @@ const CarDetail = (props: CarDetailProps) => {
     >
       <Box
         sx={{
-          width: '500px',
+          width: '400px',
           height: '300px',
           position: 'relative',
         }}
       >
-        <Image
-          src={`${urlImage ? urlImage : '/image/'}`}
-          layout={'fill'}
-          objectFit="contain"
-        />
+        {urlImage ? (
+          <Image
+            src={`${urlImage}`}
+            layout={'fill'}
+            objectFit="contain"
+          />
+        ) : (
+          <Loading />
+        )}
       </Box>
       <Box
         sx={{

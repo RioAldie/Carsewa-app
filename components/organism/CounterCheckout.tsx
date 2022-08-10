@@ -3,14 +3,15 @@ import AirlineSeatReclineNormalIcon from '@mui/icons-material/AirlineSeatRecline
 import CarCrashIcon from '@mui/icons-material/CarCrash';
 import DiamondIcon from '@mui/icons-material/Diamond';
 import SpeedIcon from '@mui/icons-material/Speed';
-import { useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 
 interface CounterCheckoutProps {
   car: any;
+  setTotal: (total: number) => void;
 }
 const CounterCheckout = (props: CounterCheckoutProps) => {
   const [quantity, setQuantity] = useState(1);
-  const { car } = props;
+  const { car, setTotal } = props;
   const { speed, category, transmision, seat, cost, currency } = car;
   const [totalCost, setTotalCost] = useState(cost);
   const handleMin = () => {
@@ -23,6 +24,7 @@ const CounterCheckout = (props: CounterCheckoutProps) => {
   };
   const handleTotalCost = (q: number) => {
     setTotalCost(cost * q);
+    setTotal(cost * q);
   };
   useEffect(() => {
     handleTotalCost(quantity);
