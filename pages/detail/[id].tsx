@@ -12,6 +12,7 @@ export default function Detail() {
   const { query, isReady } = useRouter();
   const [totalCost, setTotalCost] = React.useState(0);
   const [rentalOrder, setRentalOrder] = React.useState({});
+  const [quantity, setQuantity] = React.useState(1);
   const [car, setCar] = React.useState({
     name: '',
     urlImage: '',
@@ -48,16 +49,20 @@ export default function Detail() {
       transmision: transmision,
       seat: seat,
     });
-    getRentalOrder(data, cost);
+    getRentalOrder(data, cost, 1);
   }, []);
-  const getTotalCost = (total: number) => {
+  const getTotalCost = (total: number, counter: number) => {
     setTotalCost(total);
-    getRentalOrder(car, total);
+    getRentalOrder(car, total, counter);
   };
-  const getRentalOrder = (car: any, total: number) => {
-    const newobj = { ...car, totalCost: total };
-    return console.log(newobj);
-    //setRentalOrder({ ...car,totalCost: total})
+  const getRentalOrder = (
+    car: any,
+    total: number,
+    counter: number
+  ) => {
+    const newobj = { ...car, totalCost: total, quantity: counter };
+    console.log(newobj);
+    return setRentalOrder(newobj);
   };
   React.useEffect(() => {
     if (isReady) {
@@ -111,7 +116,10 @@ export default function Detail() {
             }}
           >
             <CounterCheckout car={car} setTotal={getTotalCost} />
-            <PickDate location={car.location} />
+            <PickDate
+              location={car.location}
+              rentalData={rentalOrder}
+            />
           </Box>
         </Box>
       </Box>

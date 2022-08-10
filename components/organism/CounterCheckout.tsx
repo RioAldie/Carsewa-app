@@ -7,7 +7,7 @@ import { SetStateAction, useEffect, useState } from 'react';
 
 interface CounterCheckoutProps {
   car: any;
-  setTotal: (total: number) => void;
+  setTotal: (total: number, counter: number) => void;
 }
 const CounterCheckout = (props: CounterCheckoutProps) => {
   const [quantity, setQuantity] = useState(1);
@@ -24,7 +24,7 @@ const CounterCheckout = (props: CounterCheckoutProps) => {
   };
   const handleTotalCost = (q: number) => {
     setTotalCost(cost * q);
-    setTotal(cost * q);
+    setTotal(cost * q, q);
   };
   useEffect(() => {
     handleTotalCost(quantity);

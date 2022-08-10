@@ -9,16 +9,39 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import { useState } from 'react';
 import DaySelect from '../moleculs/day-select';
-import LocationSelect from '../moleculs/location-select';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 
 interface PickDateProps {
   location: string;
+  rentalData: {};
 }
 
 const PickDate = (props: PickDateProps) => {
-  const { location } = props;
+  const { location, rentalData } = props;
+  // const [value, setValue] = useState<Date | null>(null);
+  const [pickup, setPickup] = useState<Date | null | undefined>();
+  const [returnDate, setReturnDate] = useState<
+    Date | null | undefined
+  >();
 
+  const getPickUp = (date: Date | null) => {
+    setPickup(date);
+    console.log(date);
+  };
+  const getReturnDate = (date: Date | null) => {
+    setReturnDate(date);
+    console.log(date);
+  };
+  const setRentalOrderCheckout = () => {
+    const date = { pickup: pickup, return: returnDate };
+    const newrent = { ...rentalData, date };
+
+    console.log(newrent);
+  };
   const BoxMain = styled(Box)({
     minHeight: '130px',
     display: 'flex',
@@ -80,7 +103,15 @@ const PickDate = (props: PickDateProps) => {
         <Typography variant="h6" fontWeight={'bold'} fontSize={16}>
           Pick-up Date
         </Typography>
-        <DaySelect />
+        <LocalizationProvider dateAdapter={AdapterMoment}>
+          <DatePicker
+            value={pickup}
+            onChange={(newValue) => {
+              setPickup(newValue);
+            }}
+            renderInput={(params) => <TextField {...params} />}
+          />
+        </LocalizationProvider>
       </Box>
       <Box
         sx={{
@@ -92,7 +123,15 @@ const PickDate = (props: PickDateProps) => {
         <Typography variant="h6" fontWeight={'bold'} fontSize={16}>
           Return Date
         </Typography>
-        <DaySelect />
+        <LocalizationProvider dateAdapter={AdapterMoment}>
+          <DatePicker
+            value={returnDate}
+            onChange={(newValue) => {
+              setReturnDate(newValue);
+            }}
+            renderInput={(params) => <TextField {...params} />}
+          />
+        </LocalizationProvider>
       </Box>
       <Box>
         <Button
@@ -104,6 +143,7 @@ const PickDate = (props: PickDateProps) => {
             mt: '10px',
             width: '250px',
           }}
+          onClick={() => setRentalOrderCheckout()}
         >
           {' '}
           Checkout
