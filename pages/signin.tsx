@@ -4,8 +4,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { GoogleLogin, googleLogout } from '@react-oauth/google';
 import { createAndGetUser } from '../services';
-import useAuthStore from '../store/AuthStore';
 import { useRouter } from 'next/router';
+import useAuthStore from '../store/authStore';
 export default function Signin() {
   const { userProfile, addUser } = useAuthStore();
   const router = useRouter();

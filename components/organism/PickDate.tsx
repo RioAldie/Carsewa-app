@@ -14,6 +14,8 @@ import DaySelect from '../moleculs/day-select';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+import Link from 'next/link';
+import useRentStore from '../../store/rentStore';
 
 interface PickDateProps {
   location: string;
@@ -22,7 +24,7 @@ interface PickDateProps {
 
 const PickDate = (props: PickDateProps) => {
   const { location, rentalData } = props;
-  // const [value, setValue] = useState<Date | null>(null);
+  const { rentDetail, setRentDetail } = useRentStore();
   const [pickup, setPickup] = useState<Date | null | undefined>();
   const [returnDate, setReturnDate] = useState<
     Date | null | undefined
@@ -40,7 +42,7 @@ const PickDate = (props: PickDateProps) => {
     const date = { pickup: pickup, return: returnDate };
     const newrent = { ...rentalData, date };
 
-    console.log(newrent);
+    setRentDetail(newrent);
   };
   const BoxMain = styled(Box)({
     minHeight: '130px',
@@ -134,20 +136,22 @@ const PickDate = (props: PickDateProps) => {
         </LocalizationProvider>
       </Box>
       <Box>
-        <Button
-          variant="contained"
-          sx={{
-            height: '50px',
-            fontWeight: '500',
-            borderRadius: '11px',
-            mt: '10px',
-            width: '250px',
-          }}
-          onClick={() => setRentalOrderCheckout()}
-        >
-          {' '}
-          Checkout
-        </Button>
+        <Link href={'/checkout'}>
+          <Button
+            variant="contained"
+            sx={{
+              height: '50px',
+              fontWeight: '500',
+              borderRadius: '11px',
+              mt: '10px',
+              width: '250px',
+            }}
+            onClick={() => setRentalOrderCheckout()}
+          >
+            {' '}
+            Checkout
+          </Button>
+        </Link>
       </Box>
     </BoxMain>
   );

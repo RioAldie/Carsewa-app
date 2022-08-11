@@ -17,6 +17,7 @@ import PaymentForm from '../components/PaymentForm';
 import Review from '../components/Review';
 import Navbar from '../components/Navbar';
 import Head from 'next/head';
+import useRentStore from '../store/rentStore';
 
 const steps = [
   'Shipping address',
@@ -39,7 +40,7 @@ function getStepContent(step: number) {
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
-
+  const { rentDetail, setRentDetail } = useRentStore();
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
@@ -47,7 +48,7 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
-
+  console.log(rentDetail);
   return (
     <>
       <Head>
