@@ -32,11 +32,9 @@ const PickDate = (props: PickDateProps) => {
 
   const getPickUp = (date: Date | null) => {
     setPickup(date);
-    console.log(date);
   };
   const getReturnDate = (date: Date | null) => {
     setReturnDate(date);
-    console.log(date);
   };
   const setRentalOrderCheckout = () => {
     const date = { pickup: pickup, return: returnDate };

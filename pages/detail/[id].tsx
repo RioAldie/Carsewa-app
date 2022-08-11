@@ -61,7 +61,6 @@ export default function Detail() {
     counter: number
   ) => {
     const newobj = { ...car, totalCost: total, quantity: counter };
-    console.log(newobj);
     return setRentalOrder(newobj);
   };
   React.useEffect(() => {
