@@ -14,23 +14,23 @@ export default {
       type: 'file',
     },
     {
-      name: 'idCard',
-      title: 'Nomor KTP',
+      name: 'city',
+      title: 'City',
       type: 'string',
     },
     {
-      name: 'kotaAsal',
-      title: 'Kota Asal',
+      name: 'email',
+      title: 'Email',
       type: 'string',
     },
     {
-      name: 'old',
-      title: 'Umur',
-      type: 'string',
-    },
-    {
-      name: 'id',
+      name: 'userid',
       title: 'user id',
+      type: 'string',
+    },
+    {
+      name: 'password',
+      title: 'Password',
       type: 'string',
     },
   ],

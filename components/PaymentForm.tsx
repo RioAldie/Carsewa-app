@@ -8,6 +8,12 @@ import { Box, Button } from '@mui/material';
 import Image from 'next/image';
 
 export default function PaymentForm() {
+  const [paymentData, setPaymentData] = React.useState({
+    bankName: '',
+    cardName: '',
+    carNumber: '',
+    cvv: '',
+  });
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>

@@ -86,10 +86,12 @@ export default function Navbar() {
                 {userProfile ? (
                   <div>
                     <Link href={'/profile'}>
-                      <UserAvatar
-                        userName={userProfile.userName}
-                        image={userProfile.image}
-                      />
+                      <a>
+                        <UserAvatar
+                          userName={userProfile.userName}
+                          image={userProfile.image}
+                        />
+                      </a>
                     </Link>
                     <Button
                       variant="outlined"

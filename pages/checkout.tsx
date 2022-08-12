@@ -45,6 +45,7 @@ export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
   const { rentDetail, setRentDetail } = useRentStore();
   const { userProfile, addUser } = useAuthStore();
+  const [dataCheckout, setDataCheckout] = React.useState({});
   const [userData, setUserData] = React.useState({
     firstName: '',
     secondName: '',
@@ -53,7 +54,16 @@ export default function Checkout() {
     city: '',
     shipLocation: '',
   });
-  console.log(userData);
+  const getFirstDataCheckout = (userdata: {}) => {
+    const newobj = { rentDetail, userProfile, userdata };
+
+    setDataCheckout(newobj);
+  };
+  const getDataCheckout = (object: {}) => {
+    const newobj = { ...dataCheckout, object };
+    console.log(newobj);
+    //setDataCheckout({...dataCheckout,object})
+  };
   const handleChange = (key: any, value: any) => {
     if (key === 'firstName') {
       setUserData((prev) => ({ ...prev, firstName: value }));
@@ -74,7 +84,28 @@ export default function Checkout() {
       setUserData((prev) => ({ ...prev, shipLocation: value }));
     }
   };
+  const getStepContent = (step: number) => {
+    switch (step) {
+      case 0:
+        return <AddressForm handleChange={handleChange} />;
+      case 1:
+        return <PaymentForm />;
+      case 2:
+        return <Review />;
+      default:
+        throw new Error('Unknown step');
+    }
+  };
   const handleNext = () => {
+    if (activeStep === 0) {
+      getFirstDataCheckout(userData);
+    }
+    if (activeStep === 1) {
+      console.log('dekdek');
+    }
+    if (activeStep === 2) {
+      console.log('turuu');
+    }
     setActiveStep(activeStep + 1);
   };
 
@@ -121,20 +152,10 @@ export default function Checkout() {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {activeStep === 0 ? (
-                  <AddressForm handleChange={handleChange} />
-                ) : null}
+                {getStepContent(activeStep)}
                 <Box
                   sx={{ display: 'flex', justifyContent: 'flex-end' }}
                 >
-                  {activeStep !== 0 && (
-                    <Button
-                      onClick={handleBack}
-                      sx={{ mt: 3, ml: 1 }}
-                    >
-                      Back
-                    </Button>
-                  )}
                   <Button
                     variant="contained"
                     onClick={handleNext}
