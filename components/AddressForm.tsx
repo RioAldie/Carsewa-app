@@ -3,38 +3,11 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 
-export default function AddressForm() {
-  const [userData, setUserData] = React.useState({
-    firstName: '',
-    secondName: '',
-    phone: 0,
-    email: '',
-    city: '',
-    shipLocation: '',
-  });
-  const handleChange = (key: any, value: any) => {
-    if (key === 'firstName') {
-      setUserData((prev) => ({ ...prev, firstName: value }));
-    }
-    if (key === 'secondName') {
-      setUserData((prev) => ({ ...prev, secondName: value }));
-    }
-    if (key === 'phone') {
-      setUserData((prev) => ({ ...prev, phone: value }));
-    }
-    if (key === 'email') {
-      setUserData((prev) => ({ ...prev, email: value }));
-    }
-    if (key === 'city') {
-      setUserData((prev) => ({ ...prev, city: value }));
-    }
-    if (key === 'shipping') {
-      setUserData((prev) => ({ ...prev, shipLocation: value }));
-    }
-  };
-  React.useEffect(() => {
-    console.log(userData);
-  }, [userData]);
+interface AddressFormProps {
+  handleChange: (key: any, value: any) => void;
+}
+export default function AddressForm(props: AddressFormProps) {
+  const { handleChange } = props;
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>

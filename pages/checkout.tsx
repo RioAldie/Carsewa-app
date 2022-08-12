@@ -25,24 +25,55 @@ const steps = [
   'Payment details',
   'Review your order',
 ];
-
-function getStepContent(step: number) {
-  switch (step) {
-    case 0:
-      return <AddressForm />;
-    case 1:
-      return <PaymentForm />;
-    case 2:
-      return <Review />;
-    default:
-      throw new Error('Unknown step');
-  }
+interface getStepContentProps {
+  handleChange: (key: any, value: any) => void;
 }
+// function getStepContent(step: number,action: getStepContentProps) {
+//   switch (step) {
+//     case 0:
+//       return <AddressForm/>;
+//     case 1:
+//       return <PaymentForm />;
+//     case 2:
+//       return <Review />;
+//     default:
+//       throw new Error('Unknown step');
+//   }
+// }
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
   const { rentDetail, setRentDetail } = useRentStore();
   const { userProfile, addUser } = useAuthStore();
+  const [userData, setUserData] = React.useState({
+    firstName: '',
+    secondName: '',
+    phone: 0,
+    email: '',
+    city: '',
+    shipLocation: '',
+  });
+  console.log(userData);
+  const handleChange = (key: any, value: any) => {
+    if (key === 'firstName') {
+      setUserData((prev) => ({ ...prev, firstName: value }));
+    }
+    if (key === 'secondName') {
+      setUserData((prev) => ({ ...prev, secondName: value }));
+    }
+    if (key === 'phone') {
+      setUserData((prev) => ({ ...prev, phone: value }));
+    }
+    if (key === 'email') {
+      setUserData((prev) => ({ ...prev, email: value }));
+    }
+    if (key === 'city') {
+      setUserData((prev) => ({ ...prev, city: value }));
+    }
+    if (key === 'shipping') {
+      setUserData((prev) => ({ ...prev, shipLocation: value }));
+    }
+  };
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
@@ -50,8 +81,7 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
-  console.log(rentDetail);
-  console.log(userProfile);
+
   return (
     <>
       <Head>
@@ -91,7 +121,9 @@ export default function Checkout() {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {getStepContent(activeStep)}
+                {activeStep === 0 ? (
+                  <AddressForm handleChange={handleChange} />
+                ) : null}
                 <Box
                   sx={{ display: 'flex', justifyContent: 'flex-end' }}
                 >
