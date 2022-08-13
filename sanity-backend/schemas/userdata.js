@@ -24,7 +24,7 @@ export default {
       type: 'string',
     },
     {
-      name: 'userid',
+      name: 'uid',
       title: 'user id',
       type: 'string',
     },

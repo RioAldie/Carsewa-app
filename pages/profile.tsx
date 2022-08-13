@@ -15,6 +15,7 @@ import Head from 'next/head';
 import Payments from '../components/organism/Payments';
 import History from '../components/organism/History';
 import Mails from '../components/organism/Mails';
+import axios from 'axios';
 
 export default function Profile() {
   const [view, setView] = useState('edit');
@@ -85,3 +86,10 @@ export default function Profile() {
     </>
   );
 }
+export const getServerSideProps = async () => {
+  const { data } = await axios.get('http://localhost:3000/api/user');
+  console.log(data);
+  return {
+    props: {},
+  };
+};
