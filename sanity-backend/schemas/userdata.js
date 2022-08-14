@@ -4,7 +4,7 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'userName',
+      name: 'username',
       title: 'user name',
       type: 'string',
     },
@@ -31,6 +31,21 @@ export default {
     {
       name: 'password',
       title: 'Password',
+      type: 'string',
+    },
+    {
+      name: 'bank',
+      title: 'Bank Name',
+      type: 'string',
+    },
+    {
+      name: 'cardName',
+      title: 'name on card',
+      type: 'string',
+    },
+    {
+      name: 'cardNumber',
+      title: 'Rekening Number',
       type: 'string',
     },
   ],

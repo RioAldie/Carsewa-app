@@ -20,10 +20,13 @@ export interface Car{
     width: number,
     height: number
 }
-export interface userdata{
+export interface Userdata{
     username: string,
     city: string,
     email: string,
     password: string,
-    uid: string
+    uid: string,
+    bank: string,
+    cardName: string,
+    cardNumber: string
 }

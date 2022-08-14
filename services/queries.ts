@@ -17,12 +17,16 @@ export const allCarsQuery = () =>{
     }` 
     return query;
 }
-export const userDataById = (uid:string) =>{
+export const userDataById = () =>{
     const query = `*[_type == 'userdata' ] | order(_createAt desc){
         username,
         email,
         city,
-        password
+        password,
+        uid,
+        bank,
+        cardName,
+        cardNumber
     }` 
     return query;
 }

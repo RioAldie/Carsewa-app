@@ -16,11 +16,16 @@ import Payments from '../components/organism/Payments';
 import History from '../components/organism/History';
 import Mails from '../components/organism/Mails';
 import axios from 'axios';
+import { Userdata } from '../type';
 
-export default function Profile() {
+interface ProfileProps {
+  users: Userdata;
+}
+export default function Profile({ users }: ProfileProps) {
   const [view, setView] = useState('edit');
   const [actived, setActived] = useState('Profile');
 
+  console.log(users);
   const SectionActive = (actived: string) => {
     if (actived === 'Profile') {
       return <ProfilePreview />;
@@ -90,6 +95,8 @@ export const getServerSideProps = async () => {
   const { data } = await axios.get('http://localhost:3000/api/user');
   console.log(data);
   return {
-    props: {},
+    props: {
+      users: data,
+    },
   };
 };
