@@ -17,15 +17,29 @@ import History from '../components/organism/History';
 import Mails from '../components/organism/Mails';
 import axios from 'axios';
 import { Userdata } from '../type';
+import useUserStore from '../store/userStore';
+import useAuthStore from '../store/authStore';
 
 interface ProfileProps {
-  users: Userdata;
+  users: Userdata[];
 }
 export default function Profile({ users }: ProfileProps) {
-  const [view, setView] = useState('edit');
   const [actived, setActived] = useState('Profile');
+  const { userData, addUserData } = useUserStore();
+  const { userProfile, addUser } = useAuthStore();
 
-  console.log(users);
+  const getUserById = () => {
+    const uid = userProfile._id;
+    users.forEach((user) => {
+      if (uid === user.uid) {
+        return addUserData(user);
+      }
+    });
+  };
+  useEffect(() => {
+    getUserById();
+  }, [userProfile]);
+
   const SectionActive = (actived: string) => {
     if (actived === 'Profile') {
       return <ProfilePreview />;
@@ -43,9 +57,6 @@ export default function Profile({ users }: ProfileProps) {
       return <Mails />;
     }
   };
-  useEffect(() => {
-    console.log(actived);
-  }, [actived]);
   return (
     <>
       <Head>

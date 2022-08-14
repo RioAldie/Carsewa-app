@@ -12,14 +12,21 @@ import {
 import Image from 'next/image';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import useUserStore from '../../store/userStore';
 
 const Payments = () => {
   const [payment, setPayment] = useState('cc');
-
+  const { userData, addUserData } = useUserStore();
+  const [dataPayment, setDataPayment] = useState({
+    bank: userData.bank,
+    cardName: userData.cardName,
+    cardNumber: userData.cardNumber,
+  });
   const handleChange = (event: SelectChangeEvent) => {
     setPayment(event.target.value as string);
   };
+  console.log(dataPayment);
   const DisplayPayment = () => {
     if (payment === 'gopay') {
       return (
