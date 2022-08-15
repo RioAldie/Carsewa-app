@@ -10,9 +10,20 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 import { useState } from 'react';
+import useUserStore from '../../store/userStore';
+import useAuthStore from '../../store/authStore';
 
 const EditProfile = () => {
   const [isChange, setIsChange] = useState(false);
+  const { userData, addUserData } = useUserStore();
+  const { userProfile, addUser } = useAuthStore();
+  const [profile, setProfile] = useState({
+    username: userData.username,
+    password: userData.password,
+    email: userData.email,
+    location: userData.city,
+    image: userProfile.image,
+  });
   const ButtonEdit = () => {
     return (
       <Box
@@ -65,7 +76,11 @@ const EditProfile = () => {
         }}
       >
         <Image
-          src={'/image/avatar-sz.png'}
+          src={
+            profile.image != null
+              ? profile.image
+              : '/image/avatar-2.png'
+          }
           width={100}
           height={100}
         />
@@ -105,7 +120,11 @@ const EditProfile = () => {
         >
           <TextField
             label="Username"
-            defaultValue="Sherlina Tzu"
+            defaultValue={
+              profile.username != null
+                ? profile.username
+                : 'Type your username'
+            }
             fullWidth
             sx={{
               mt: '20px',
@@ -115,7 +134,11 @@ const EditProfile = () => {
           <TextField
             id="outlined-read-only-input"
             label="Password"
-            defaultValue="Sherlina Tzuyu"
+            defaultValue={
+              profile.password != null
+                ? profile.password
+                : 'Type your password'
+            }
             type={'password'}
             fullWidth
             sx={{
@@ -126,7 +149,7 @@ const EditProfile = () => {
           <TextField
             id="outlined-read-only-input"
             label="Email"
-            defaultValue="Sherlitzu@gmail.com"
+            defaultValue={profile.email}
             fullWidth
             sx={{
               mt: '20px',
@@ -136,7 +159,7 @@ const EditProfile = () => {
           <TextField
             id="outlined-read-only-input"
             label="Location"
-            defaultValue="Jakarta"
+            defaultValue={profile.location}
             fullWidth
             sx={{
               mt: '20px',

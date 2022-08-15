@@ -93,15 +93,17 @@ export default function Navbar() {
                         />
                       </a>
                     </Link>
-                    <Button
-                      variant="outlined"
-                      onClick={() => {
-                        googleLogout();
-                        removeUser();
-                      }}
-                    >
-                      <ExitToAppIcon />
-                    </Button>
+                    <Link href={'/signin'}>
+                      <Button
+                        variant="outlined"
+                        onClick={() => {
+                          googleLogout();
+                          removeUser();
+                        }}
+                      >
+                        <ExitToAppIcon />
+                      </Button>
+                    </Link>
                   </div>
                 ) : (
                   <Link href={'/signin'}>

@@ -62,7 +62,7 @@ export default function ProfilePreview() {
                 color: '#DF00E3',
               }}
             />{' '}
-            Sherlin Tzu
+            {userData.username}
           </Typography>
           <Typography
             sx={{
@@ -73,7 +73,7 @@ export default function ProfilePreview() {
               alignItems: 'center',
             }}
           >
-            Jakarta, Indonesia
+            {userData.city}, Indonesia
           </Typography>
           <Image src={'/image/cc-png.png'} width={200} height={121} />
         </Box>
