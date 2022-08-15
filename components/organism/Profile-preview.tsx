@@ -89,7 +89,6 @@ export default function ProfilePreview() {
             }}
           >
             <TextField
-              id="outlined-read-only-input"
               label="No. Rekening"
               defaultValue="7292201616616"
               InputProps={{
@@ -101,7 +100,6 @@ export default function ProfilePreview() {
               }}
             />
             <TextField
-              id="outlined-read-only-input"
               label="Bank"
               defaultValue="Bank Rakyat Indonesia"
               InputProps={{
@@ -113,7 +111,6 @@ export default function ProfilePreview() {
               }}
             />
             <TextField
-              id="outlined-read-only-input"
               label="Nama Pemilik"
               defaultValue="Sherlina Tzuyu"
               InputProps={{
@@ -125,7 +122,6 @@ export default function ProfilePreview() {
               }}
             />
             <TextField
-              id="outlined-read-only-input"
               label="Username"
               defaultValue="Sherlina Tzu"
               InputProps={{
@@ -137,7 +133,6 @@ export default function ProfilePreview() {
               }}
             />
             <TextField
-              id="outlined-read-only-input"
               label="Password"
               defaultValue="Sherlina Tzuyu"
               type={'password'}
@@ -150,7 +145,6 @@ export default function ProfilePreview() {
               }}
             />
             <TextField
-              id="outlined-read-only-input"
               label="Email"
               defaultValue="Sherlitzu@gmail.com"
               InputProps={{
@@ -162,7 +156,6 @@ export default function ProfilePreview() {
               }}
             />
             <TextField
-              id="outlined-read-only-input"
               label="Location"
               defaultValue="Jakarta"
               InputProps={{

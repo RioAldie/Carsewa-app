@@ -1,8 +1,18 @@
 import create from "zustand";
 import { persist } from 'zustand/middleware';
-
+import { Userdata } from "../type";
 const userStore = (set: any) => ({
-  userData: null,
+  userData: {
+    bank: null,
+    cardName: null,
+    cardNumber: null,
+    email: null,
+    ciry: '',
+    password: null,
+    uid: null,
+    username: ""
+
+  },
 
   addUserData: (user: any) => set({ userData: user }),
 });

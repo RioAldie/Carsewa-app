@@ -26,7 +26,7 @@ const Payments = () => {
   const handleChange = (event: SelectChangeEvent) => {
     setPayment(event.target.value as string);
   };
-  console.log(dataPayment);
+  console.log(userData);
   const DisplayPayment = () => {
     if (payment === 'gopay') {
       return (
@@ -142,7 +142,11 @@ const Payments = () => {
         >
           <TextField
             label="Rek Number or Phone Number*"
-            defaultValue="7292201616616"
+            defaultValue={
+              userData != null
+                ? dataPayment.cardNumber
+                : 'Type Card Number'
+            }
             fullWidth
             sx={{
               mt: '20px',
@@ -158,7 +162,11 @@ const Payments = () => {
           />
           <TextField
             label="Nama Pemilik"
-            defaultValue="Sherlina Tzuyu"
+            defaultValue={
+              userData.bank != null
+                ? dataPayment.cardName
+                : 'Type Card Name'
+            }
             fullWidth
             sx={{
               mt: '20px',
