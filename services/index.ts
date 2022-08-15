@@ -10,7 +10,8 @@ export const createAndGetUser = async (response: any, addUser: any) => {
         _id: sub,
         _type: 'user',
         userName: name,
-        image: picture
+        image: picture,
+        email: email
     }
 
     addUser(user);

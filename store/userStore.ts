@@ -7,7 +7,7 @@ const userStore = (set: any) => ({
     cardName: null,
     cardNumber: null,
     email: null,
-    ciry: '',
+    city: '',
     password: null,
     uid: null,
     username: ""

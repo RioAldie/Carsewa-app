@@ -104,7 +104,7 @@ export default function Profile({ users }: ProfileProps) {
 }
 export const getServerSideProps = async () => {
   const { data } = await axios.get('http://localhost:3000/api/user');
-  console.log(data);
+
   return {
     props: {
       users: data,

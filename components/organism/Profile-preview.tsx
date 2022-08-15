@@ -7,8 +7,13 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 import VerifiedIcon from '@mui/icons-material/Verified';
+import useUserStore from '../../store/userStore';
+import useAuthStore from '../../store/authStore';
 
 export default function ProfilePreview() {
+  const { userData, addUserData } = useUserStore();
+  const { userProfile, addUser } = useAuthStore();
+  console.log(userProfile);
   return (
     <>
       <Box
@@ -35,7 +40,11 @@ export default function ProfilePreview() {
           }}
         >
           <Image
-            src={'/image/avatar-sz.png'}
+            src={
+              userProfile != null
+                ? `${userProfile.image}`
+                : ' /image/avatar-2.png'
+            }
             width={100}
             height={100}
           />
@@ -90,7 +99,9 @@ export default function ProfilePreview() {
           >
             <TextField
               label="No. Rekening"
-              defaultValue="7292201616616"
+              defaultValue={
+                userData.bank != null ? userData.cardNumber : ' '
+              }
               InputProps={{
                 readOnly: true,
               }}
@@ -112,7 +123,9 @@ export default function ProfilePreview() {
             />
             <TextField
               label="Nama Pemilik"
-              defaultValue="Sherlina Tzuyu"
+              defaultValue={
+                userData.bank != null ? userData.cardName : ' '
+              }
               InputProps={{
                 readOnly: true,
               }}
@@ -123,7 +136,7 @@ export default function ProfilePreview() {
             />
             <TextField
               label="Username"
-              defaultValue="Sherlina Tzu"
+              defaultValue={userData.username}
               InputProps={{
                 readOnly: true,
               }}
@@ -134,7 +147,7 @@ export default function ProfilePreview() {
             />
             <TextField
               label="Password"
-              defaultValue="Sherlina Tzuyu"
+              defaultValue={userData.password}
               type={'password'}
               InputProps={{
                 readOnly: true,
@@ -146,7 +159,7 @@ export default function ProfilePreview() {
             />
             <TextField
               label="Email"
-              defaultValue="Sherlitzu@gmail.com"
+              defaultValue={userData.email}
               InputProps={{
                 readOnly: true,
               }}
@@ -157,7 +170,7 @@ export default function ProfilePreview() {
             />
             <TextField
               label="Location"
-              defaultValue="Jakarta"
+              defaultValue={userData.city}
               InputProps={{
                 readOnly: true,
               }}
