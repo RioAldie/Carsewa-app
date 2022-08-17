@@ -37,7 +37,9 @@ export default function Profile({ users }: ProfileProps) {
     });
   };
   useEffect(() => {
-    getUserById();
+    if (userProfile != null) {
+      getUserById();
+    }
   }, [userProfile]);
 
   const SectionActive = (actived: string) => {

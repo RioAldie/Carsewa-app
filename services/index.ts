@@ -18,3 +18,7 @@ export const createAndGetUser = async (response: any, addUser: any) => {
     await axios.post('http://localhost:3000/api/auth',user);
 }
 
+export const createAndGetRental = async (res: any) =>{
+    console.log("response =>",res);
+
+}

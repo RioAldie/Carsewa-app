@@ -43,7 +43,7 @@ export default function ProfilePreview() {
             src={
               userProfile != null
                 ? `${userProfile.image}`
-                : ' /image/avatar-2.png'
+                : '/image/avatar-2.png'
             }
             width={100}
             height={100}

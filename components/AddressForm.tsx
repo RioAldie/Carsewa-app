@@ -2,12 +2,16 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import useRentStore from '../store/rentStore';
+import useUserStore from '../store/userStore';
 
 interface AddressFormProps {
   handleChange: (key: any, value: any) => void;
 }
 export default function AddressForm(props: AddressFormProps) {
   const { handleChange } = props;
+  const { userData } = useUserStore();
+  console.log(userData);
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -63,6 +67,7 @@ export default function AddressForm(props: AddressFormProps) {
             fullWidth
             autoComplete="city"
             variant="standard"
+            defaultValue={userData.city != null ? userData.city : ' '}
             onChange={(e) => handleChange('city', e.target.value)}
           />
         </Grid>
@@ -76,6 +81,7 @@ export default function AddressForm(props: AddressFormProps) {
             autoComplete="email"
             variant="standard"
             onChange={(e) => handleChange('email', e.target.value)}
+            defaultValue={userData.email}
           />
         </Grid>
         <Grid item xs={12}>

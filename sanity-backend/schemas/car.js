@@ -1,5 +1,3 @@
-import { Category } from '@mui/icons-material';
-
 export default {
   name: 'car',
   title: 'Car',

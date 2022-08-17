@@ -19,6 +19,7 @@ import Navbar from '../components/Navbar';
 import Head from 'next/head';
 import useRentStore from '../store/rentStore';
 import useAuthStore from '../store/authStore';
+import { createAndGetRental } from '../services';
 
 const steps = [
   'Shipping address',
@@ -109,8 +110,9 @@ export default function Checkout() {
     setActiveStep(activeStep + 1);
   };
 
-  const handleBack = () => {
-    setActiveStep(activeStep - 1);
+  const handleFinish = () => {
+    console.log('turu dek');
+    createAndGetRental(dataCheckout);
   };
 
   return (
@@ -140,7 +142,8 @@ export default function Checkout() {
           </Stepper>
           <React.Fragment>
             {activeStep === steps.length ? (
-              <React.Fragment>
+              <>
+                {handleFinish()}
                 <Typography variant="h5" gutterBottom>
                   Thank you for your order.
                 </Typography>
@@ -149,7 +152,7 @@ export default function Checkout() {
                   order confirmation, and will send you an update when
                   your order has shipped.
                 </Typography>
-              </React.Fragment>
+              </>
             ) : (
               <React.Fragment>
                 {getStepContent(activeStep)}

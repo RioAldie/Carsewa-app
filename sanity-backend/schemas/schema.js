@@ -7,6 +7,7 @@ import car from './car';
 import user from './user';
 import rental from './rental';
 import userdata from './userdata';
+
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
